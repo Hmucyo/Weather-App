@@ -1,116 +1,409 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-  </head>
-  <body>
-    <div class="phone-wallpaper">
-      <div class="search-icon">
-        <i class="fas fa-search"></i> 
-      </div>
-      <div class="settings-icon">
-        <i class="fas fa-gear"></i> 
-      </div>
-      <div class="welcome-box">
-          Welcome, Hugues!
-      </div>
-      <div class="Cities">
-        <div class="City-one">
-          Ocean City
-        </div>
-        <div class="City-three">
-          Newark
-        </div>
-        <div class="City-two">
-          Kigali
-        </div>
-      </div>
-      <div class="circle">78º
-      </div>
-      <div class="units">
-        <div class="fahrenheit">ºF
-        </div>
-        <div class="celcius">ºC
-        </div>
-      </div>
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: top;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.9em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #410d0d;
+  } 
+}
+.phone-wallpaper {
+  margin-top: 40pt;
+  margin-left: 140px;
+  width: 375px;  /* typical phone width, e.g., iPhone X */
+  height: 667px; /* typical phone height, e.g., iPhone X */
+  background-color: #7fb3c1; /* Dark background for the wallpaper */
+  display: flex;
+  justify-content: center;
+  align-items: space-around;
+  box-shadow: 0 0 10px 3px rgba(0,0,0,0.5); /* Optional: for shadow effect to look like a phone */
+}
+.search-icon {
+  position: absolute;
+  top: 70px;  /* Adjust the top spacing */
+  left: 150px;  /* Adjust the left spacing */
+  font-size: 14px;  /* Icon size */
+  color: #333;  /* Icon color */
+}
+.settings-icon {
+  position: absolute;
+  top: 70px;  /* Adjust the top spacing */
+  left: 487px;  /* Adjust the left spacing */
+  font-size: 16px;  /* Icon size */
+  color: #333;  /* Icon color */
+}
+.welcome-box {
+  margin-top: 10px;  /* Adjusts the space above the box */
+  width: 120px;
+  height: 30px;
+  background-color: #007BFF;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-family: Montserrat;
+  border-radius: 5px;
+}
+.Cities {
+  position: absolute;
+  top: 90px;
+  left: 144px;
+  margin-top: 10px;  /* Adjusts the display: flex;       /* Enables flexbox */
+  flex-direction: column; /* Stacks the flex items vertically */
+  align-items: center; /* Optional: centers the boxes horizontally */
+  justify-content: space-around; /* Optional: distributes space around the items */
+}
+.City-one {
+  margin-top: 1px;  /* Adjusts the space above the box */
+  width: 80px;
+  height: 16px;
+  background-color: rgb(56, 128, 152);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: Montserrat;
+  border-radius: 5px;
+}
+.City-two {
+  margin-top: 1px;  /* Adjusts the space above the box */
+  width: 80px;
+  height: 16px;
+  background-color: #75828f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: Montserrat;
+  border-radius: 5px;
+}
+.City-three {
+  margin-top: 1px;  /* Adjusts the space above the box */
+  width: 80px;
+  height: 16px;
+  background-color: #75828f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: Montserratf;
+  border-radius: 5px;
+}
+.circle {
+  position: absolute;
+  top: 80px;
+  left: 280px;
+  width: 90px;
+  height: 90px;
+  background-color: lightblue;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Montserrat;
+  color: black;
+  margin: 20px auto;
+}
+
+.circle {
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 1;
+}
+.weather-description {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+.units {
+  position: absolute;
+  top: 90px;
+  left: 485px;
+  margin-top: 10px;  /* Adjusts the display: flex;       /* Enables flexbox */
+  flex-direction: column; /* Stacks the flex items vertically */
+  align-items: center; /* Optional: centers the boxes horizontally */
+  justify-content: space-around; /* Optional: distributes space around the items */
+}
+.fahrenheit {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(56, 128, 152);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: Montserrat;
+  font-weight: bold;
+  color: black;
+  margin: 2px auto;
+}
+.celcius {
+  width: 20px;
+  height: 20px;
+  background-color: lightblue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: Montserrat;
+  font-weight: bold;
+  color: black;
+  margin: 1px auto;
+}
+.today-date {
+  position: absolute;
+  top: 45px;
+  left: 395px;
+  height: 10px;
+  width: 110px;
+  margin-top: 0px;  /* Adjusts the display: flex;       /* Enables flexbox */
+  flex-direction: column; /* Stacks the flex items vertically */
+  align-items: center; /* Optional: centers the boxes horizontally */
+  justify-content: flex-start; /* Optional: distributes space around the items */
+  font-size: 10px;
+  color: white;
+  font-weight: 800;
+  font-family: Montserrat;
+}
+.rise-set {
+  position: absolute;
+  top: 100px;
+  left: 385px;
+  width: 100px;
+  /* Adjusts the display: flex;       /* Enables flexbox */
+  flex-direction: row; /* Stacks the flex items vertically */
+  align-items: center; /* Optional: centers the boxes horizontally */
+  justify-content: flex-start; /* Optional: distributes space around the items */
+  font-size: 12px;
+}
+.rise {
+  height: 30px;
+  width: 200px;
+  flex-direction: row; /* Stacks the flex items vertically */
+  align-items: flex-start; /* Optional: centers the boxes horizontally */
+  justify-content: flex-start; /* Optional: distributes space around the items */
+} 
+
+.set {
+  height: 30px;
+  width: 200px;
+  flex-direction:row; /* Stacks the flex items vertically */
+  align-items: flex-start; /* Optional: centers the boxes horizontally */
+  justify-content: space-around; /* Optional: distributes space around the items */
+} 
+
+.seasons {
+  position: absolute;
+  top: 200px;
+  left: 120px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+.season {
+  width: 70px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 10px;
+}
+.seasons .season:first-child {
+  position: relative;
+  padding-top: 1px;  /* Make room for the icon */
+}
+
+.seasons .season:first-child i {
+  position: absolute;
+  top: 2px;
+  left: 90%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: white;
+}
+.next-weather {
+  position: absolute;
+  top: 250px;
+  left: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+.hour {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #3498db;
+}
 
 
-      <div class="today-date">
-        <p id="current-date">
-          Mon, September 9, 2024
-        </p>
-      </div>
-     
-      <div class="rise-set">
-        <div class="rise">
-          <i class="fas fa-sun" style="color: orange;"></i>
-          <div class="rise-time">
-              6:35 AM
-          </div>
-        </div>
-        <div class="set">
-          <i class="fas fa-sun" style="color: red;">
-          </i>
-          <div class="set-time">
-              7:35 PM
-          </div>
-          
-        </div>
-      </div>
+.weather-elements {
+  position: absolute;
+  top: 250px;
+  left: 330px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 20px;
+}
+.element {
+  width: 50px;
+  height: 15px;
+  background-color: #6a938c;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Montserrat;
+  font-size: 8px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+.circle-plus {
+  width: 20px;
+  height: 20px;
+  background-color: #6a938c;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
+.plus-sign {
+  margin-top: 10;
+  color:black;
+  font-size: 16px;
+  font-weight: medium;
+}
 
-      <div class="seasons">
-        <div class="season" style="background-color: red;">Summer</div>
-        <div class="season" style="background-color: lightgreen;">Fall</div>
-        <div class="season" style="background-color: skyblue;">Winter</div>
-        <div class="season" style="background-color: rgb(198, 105, 17);">Spring</div>
-    </div>
-      
+.forecast-rectangle {
+  position: absolute;
+  top: 370px;
+  left: 140px;
+  width: 180px;
+  height: 30px;
+  background-color: #3498db;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 20px;
+}
 
-    <div class="next-weather">
-      <div class="hour">
-          3:00 PM
-          <i class="fas fa-cloud-showers-heavy"></i>
-      </div>
-      <div class="hour">
-          4:00 PM
-          <i class="fas fa-cloud"></i>
-      </div>
-      <div class="hour">
-          5:00 PM
-          <i class="fas fa-cloud-sun"></i>
-      </div>
-      
-    </div>
-
-    <div class="weather-elements">
-      <div class="element">Rain: 100%</div>
-      <div class="element">Wind: 8 mph</div>
-      <div class="element">Humidity: 4%</div>
-      <div class="element">Tides: 3.2 ft</div>
-      <div class="element">Air Quality: 39 Good</div>
-      <div class="circle-plus">
-        <span class="plus-sign">+</span>
-      </div>
-    </div>
-  <div class="forecast-rectangle">2 Weeks Forecast</div>
-  <div class="forecast">
-    <div class="day">Tue, September 09 <i class="fas fa-cloud-showers-heavy weather-icon"></i> H: 89º L: 60º</div>
-    <div class="day">Wed, September 10 <i class="fas fa-cloud weather-icon"></i> H: 89º L: 60º</div>
-    <div class="day">Thur, September 11 <i class="fas fa-sun weather-icon"></i> H: 89º L: 60º</div>
-    <div class="day">Fri, September 12 <i class="fas fa-cloud-sun weather-icon"></i> H: 89º L: 60º</div>
-    <div class="day">Sat, September 13 <i class="fas fa-cloud weather-icon"></i> H: 89º L: 60º</div>
-    <div class="day">Sun, September 14 <i class="fas fa-cloud-showers-heavy weather-icon"></i> H: 89º L: 60º</div>
-    <div class="day">Mon, September 15 <i class="fas fa-sun weather-icon"></i> H: 89º L: 60º</div>
-</div>
-</div>
-</div>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+.forecast {
+  position: absolute;
+  top: 400px;
+  left: 140px;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  margin: 18px;
+}
+.day {
+  width: 300px;
+  height: 15px;
+  background-color: #3498db;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px;
+  border-radius: 5px;
+  font-family: Montserrat;
+  margin: 5px 0;
+}
+.weather-icon {
+  font-size: 24px;
+}
